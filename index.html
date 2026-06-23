@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURUM | Connect</title>
+    <!-- Tailwind CSS for high-end layouts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Loading Cinzel, a premium serif font that matches the AURUM logo typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom typography matching your image theme */
+        .font-aurum { font-family: 'Cinzel', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        /* Precision matching for the logo's copper-gold color */
+        .text-gold { color: #d47a37; }
+        .bg-gold { background-color: #d47a37; }
+        .border-gold { border-color: #d47a37; }
+        .focus-gold:focus { 
+            border-color: #d47a37;
+            box-shadow: 0 0 8px rgba(212, 122, 55, 0.25);
+        }
+    </style>
+</head>
+<body class="relative flex items-center justify-center min-h-screen p-4 bg-black overflow-hidden font-body">
+
+    <!-- LOW OPACITY BACKGROUND WATERMARK LAYER -->
+    <!-- This pulls your aurum logo image, expands it across the background, and gives it a very subtle 15% opacity -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none" 
+         style="background-image: url('aurum.png');">
+    </div>
+
+    <!-- MAIN FORM CARD CONTAINER (Ultra sleek transparent dark glass design) -->
+    <div class="relative z-10 bg-zinc-950/80 backdrop-blur-lg p-8 rounded-2xl shadow-2xl w-full max-w-md border border-zinc-900/60">
+        
+        <!-- Header Branding styled exactly like your image_288481.png design -->
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-aurum font-bold text-gold tracking-[0.35em] pl-[0.35em] mb-3">AURUM</h2>
+            <!-- Subtle thin copper separator line to match the accent underline in your logo -->
+            <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#d47a37] to-transparent mx-auto mb-4"></div>
+            <p class="text-zinc-500 font-body text-xs uppercase tracking-[0.2em]">Get In Touch</p>
+        </div>
+        
+        <!-- Interactive Form Fields -->
+        <form id="leadForm" class="space-y-6">
+            
+            <!-- Full Name Box -->
+            <div class="flex flex-col gap-2">
+                <label class="text-[11px] font-medium uppercase tracking-widest text-zinc-400">Full Name</label>
+                <input type="text" id="userName" required placeholder="Enter your full name" 
+                       class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus-gold transition text-sm font-light">
+            </div>
+
+            <!-- Phone Number Box -->
+            <div class="flex flex-col gap-2">
+                <label class="text-[11px] font-medium uppercase tracking-widest text-zinc-400">Phone Number</label>
+                <input type="tel" id="userPhone" required placeholder="Enter phone number" 
+                       class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus-gold transition text-sm font-light">
+            </div>
+
+            <!-- Email Box -->
+            <div class="flex flex-col gap-2">
+                <label class="text-[11px] font-medium uppercase tracking-widest text-zinc-400">Email Address</label>
+                <input type="email" id="userEmail" required placeholder="Enter email address" 
+                       class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus-gold transition text-sm font-light">
+            </div>
+
+            <!-- Premium Copper-Gold Button -->
+            <button type="submit" id="submitBtn" 
+                    class="w-full py-4 px-4 bg-gold hover:bg-[#b8632a] text-black font-aurum font-bold uppercase tracking-[0.25em] rounded-lg shadow-xl transition duration-300 transform active:scale-[0.99] text-xs mt-6">
+                Submit Request
+            </button>
+            
+        </form>
+    </div>
+
+    <!-- Connection to your app.js logic file -->
+    <script src="app.js"></script>
+</body>
+</html>
