@@ -1,83 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURUM | Connect</title>
-    <!-- Tailwind CSS for high-end layouts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Loading Cinzel, a premium serif font that matches the AURUM logo typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Custom typography matching your image theme */
-        .font-aurum { font-family: 'Cinzel', serif; }
-        .font-body { font-family: 'Inter', sans-serif; }
-        
-        /* Precision matching for the logo's copper-gold color */
-        .text-gold { color: #d47a37; }
-        .bg-gold { background-color: #d47a37; }
-        .border-gold { border-color: #d47a37; }
-        .focus-gold:focus { 
-            border-color: #d47a37;
-            box-shadow: 0 0 8px rgba(212, 122, 55, 0.25);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURUM - Client Initialization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+  <style>
+    .font-luxury { font-family: 'Cinzel', serif; }
+    .font-body { font-family: 'Montserrat', sans-serif; }
+  </style>
 </head>
-<body class="relative flex items-center justify-center min-h-screen p-4 bg-black overflow-hidden font-body">
+<body class="bg-[#060709] text-gray-200 min-h-screen font-body flex items-center justify-center relative overflow-hidden p-4">
 
-    <!-- LOW OPACITY BACKGROUND WATERMARK LAYER -->
-    <!-- This pulls your aurum logo image, expands it across the background, and gives it a very subtle 15% opacity -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none" 
-         style="background-image: url('aurum.png');">
+  <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-yellow-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-yellow-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="w-full max-w-md bg-gradient-to-b from-zinc-950 to-[#0c0e12] border border-yellow-600/10 rounded-2xl p-8 md:p-10 shadow-2xl relative z-10">
+    
+    <div class="text-center mb-10">
+      <h1 class="font-luxury text-3xl md:text-4xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-yellow-200 to-yellow-600 uppercase drop-shadow">
+        AURUM
+      </h1>
+      <p class="text-[10px] text-yellow-500/60 uppercase tracking-[0.3em] mt-2 font-light">Elite Access Portal</p>
+      <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-yellow-500/40 to-transparent mx-auto mt-5"></div>
     </div>
 
-    <!-- MAIN FORM CARD CONTAINER (Ultra sleek transparent dark glass design) -->
-    <div class="relative z-10 bg-zinc-950/80 backdrop-blur-lg p-8 rounded-2xl shadow-2xl w-full max-w-md border border-zinc-900/60">
-        
-        <!-- Header Branding styled exactly like your image_288481.png design -->
-        <div class="text-center mb-8">
-            <h2 class="text-4xl font-aurum font-bold text-gold tracking-[0.35em] pl-[0.35em] mb-3">AURUM</h2>
-            <!-- Subtle thin copper separator line to match the accent underline in your logo -->
-            <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#d47a37] to-transparent mx-auto mb-4"></div>
-            <p class="text-zinc-500 font-body text-xs uppercase tracking-[0.2em]">Get In Touch</p>
-        </div>
-        
-        <!-- Interactive Form Fields -->
-        <form id="leadForm" class="space-y-6">
-            
-            <!-- Full Name Box -->
-            <div class="flex flex-col gap-2">
-                <label class="text-[11px] font-medium uppercase tracking-widest text-zinc-400">Full Name</label>
-                <input type="text" id="userName" required placeholder="Enter your full name" 
-                       class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus-gold transition text-sm font-light">
-            </div>
+    <form onsubmit="initializeClientSession(event)" class="space-y-6">
+      
+      <div>
+        <label for="email" class="block text-[10px] uppercase text-gray-400 tracking-widest mb-2 font-medium">Digital Coordinates (Email)</label>
+        <input 
+          type="email" 
+          id="email" 
+          required 
+          placeholder="name@domain.com"
+          class="w-full bg-black/50 border border-zinc-800 rounded-lg px-4 py-3.5 text-xs text-gray-200 placeholder-zinc-600 focus:outline-none focus:border-yellow-500/80 transition-all duration-300"
+        >
+      </div>
 
-            <!-- Phone Number Box -->
-            <div class="flex flex-col gap-2">
-                <label class="text-[11px] font-medium uppercase tracking-widest text-zinc-400">Phone Number</label>
-                <input type="tel" id="userPhone" required placeholder="Enter phone number" 
-                       class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus-gold transition text-sm font-light">
-            </div>
+      <div class="pt-2">
+        <button 
+          type="submit" 
+          class="w-full bg-gradient-to-r from-yellow-500 via-yellow-200 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-black font-bold uppercase tracking-[0.2em] text-xs py-4 rounded-lg transition-all duration-300 shadow-lg shadow-yellow-600/10 active:scale-[0.99]"
+        >
+          Initialize Access
+        </button>
+      </div>
 
-            <!-- Email Box -->
-            <div class="flex flex-col gap-2">
-                <label class="text-[11px] font-medium uppercase tracking-widest text-zinc-400">Email Address</label>
-                <input type="email" id="userEmail" required placeholder="Enter email address" 
-                       class="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-200 placeholder-zinc-600 focus:outline-none focus-gold transition text-sm font-light">
-            </div>
+    </form>
 
-            <!-- Premium Copper-Gold Button -->
-            <button type="submit" id="submitBtn" 
-                    class="w-full py-4 px-4 bg-gold hover:bg-[#b8632a] text-black font-aurum font-bold uppercase tracking-[0.25em] rounded-lg shadow-xl transition duration-300 transform active:scale-[0.99] text-xs mt-6">
-                Submit Request
-            </button>
-            
-        </form>
+    <p class="font-luxury text-[9px] text-center text-zinc-600 tracking-widest uppercase mt-10 italic">
+      Move with strength, wear with elegance.
+    </p>
+
+  </div>
+
+  <div id="gold-loader" class="fixed inset-0 bg-[#060709] z-50 flex flex-col items-center justify-center hidden transition-all duration-500">
+    <div class="relative flex items-center justify-center mb-4">
+      <div class="w-16 h-16 border-2 border-transparent border-t-yellow-400 border-b-yellow-600 rounded-full animate-spin"></div>
+      <div class="absolute w-3 h-3 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full shadow-lg shadow-yellow-400/50"></div>
     </div>
+    <span class="font-luxury text-xs tracking-[0.3em] text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200 uppercase font-medium animate-pulse">
+      Verifying Coordinates...
+    </span>
+  </div>
 
-    <!-- Connection to your app.js logic file -->
-    <script src="app.js"></script>
+  <script src="app.js"></script>
+
 </body>
 </html>
